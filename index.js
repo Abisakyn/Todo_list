@@ -19,7 +19,7 @@ app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`)
 })
 
-mongoose.connect("mongodb+srv://abisakyn:pfoWbOXFIVt8Tug5@todo.zwkrqsn.mongodb.net/?retryWrites=true&w=majority&appName=todo")
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
   })
