@@ -28,5 +28,3 @@ mongoose.connect(process.env.MONGODB_URI)
   });
 
 
-//password pfoWbOXFIVt8Tug5
-//username abisakyn
