@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:20
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    command: npm start
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+    depends_on:
+      - mongo
+    networks:
+      - Todo_List_node
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - Todo_List_node
+
+networks:
+  Todo_List_node:
+    driver: bridge
+
+volumes:
+  mongo-data:
